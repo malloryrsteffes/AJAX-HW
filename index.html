@@ -14,12 +14,15 @@
 <body>
     <h1>Giphy's Animal Gif Safari</h1>
 
+    <!-- Buttons will be appended here dynamically -->
+    <div id="buttons-view"></div>
+
     <form id="gif-form">
         <label for="animal-input">Search for a animal</label>
         <input type="text" id="animal-input"><br>
   
         <!-- This button will trigger our AJAX call -->
-        <input id="find-animal" type="submit" value="Animal Search">
+        <input id="add-animal" type="submit" value="Animal Search">
       </form>
 
        <!-- We'll be dumping our JSON contents in here -->
