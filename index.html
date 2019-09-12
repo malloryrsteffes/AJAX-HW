@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>GIPHY's Animal Gif Safari</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,7 +12,19 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
+    <h1>Giphy's Animal Gif Safari</h1>
+
+    <form id="gif-form">
+        <label for="animal-input">Search for a animal</label>
+        <input type="text" id="animal-input"><br>
+  
+        <!-- This button will trigger our AJAX call -->
+        <input id="find-animal" type="submit" value="Animal Search">
+      </form>
+
+       <!-- We'll be dumping our JSON contents in here -->
+    <div id="gif-view"></div>
+  
 
     
     <!-- jQuery -->
