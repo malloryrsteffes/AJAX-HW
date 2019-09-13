@@ -1,5 +1,5 @@
 // Key: 86gmopU2iKrSWy2FWvm1h5sM3An49fxH
-$( document ).ready(function() {
+$(document).ready(function() {
     // Create an array to hold the animals
     var animals = ["cat", "dog", "horse", "pig", "cow", "rabbit", "snake", "frog", "lizard", "bird", "mouse", "rat", "lion", "tiger", "bear"]
 
@@ -25,7 +25,57 @@ $( document ).ready(function() {
         }
     }
 
-    // This .on("click") function will trigger the AJAX call
+    //On click listener for any button with a class of animal-button
+    function displayAnimalInfo(){
+        $(".animal-button").on("click", function(){
+            alert("You clicked!");
+            // Set our animal variable equal to the text of the button
+            var animal = $("#animal-input").text;
+
+            // Grab our GIPHY API by making an Ajax request
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal +"&api_key=86gmopU2iKrSWy2FWvm1h5sM3An49fxH&limit=5"
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function(response) {
+                console.log(response);
+            
+                var results = response.data;
+
+                for (i = 0; i < results.length; i++){
+                      // Creating a div to hold the movie
+                    var gifDiv = $("<div class='gif'>");
+
+                    // Storing the rating data
+                    var rating = response.data[i].rating;
+
+                    // Creating an element to have the rating displayed
+                    var ratingParagraph = $("<p>").text("Rating: " + rating);
+
+                    // Displaying the rating
+                    gifDiv.append(ratingParagraph);
+
+                    // Retrieving the URL for the image
+                    var imgURL = response.fixed_height_still;
+
+                    // Creating an element to hold the image
+                    var gif = $("<img>").attr("src", imgURL);
+
+                    // Appending the image
+                    gifDiv.append(gif);
+
+                    // Putting the entire movie above the previous movies
+                    $("#gif-view").prepend(gifDiv);
+                }
+            
+          
+        
+            });
+        })
+    }
+
+    // This .on("click") function will trigger the AJAX call. This is DONE.
     $("#add-animal").on("click", function(event) {
 
         // event.preventDefault() can be used to prevent an event's default behavior.
@@ -35,7 +85,6 @@ $( document ).ready(function() {
         // Here we grab the text from the input box
         var animal = $("#animal-input").val().trim();
 
-
         // Adding movie from the textbox to our array
         animals.push(animal);
 
@@ -44,25 +93,11 @@ $( document ).ready(function() {
 
     });
 
-    //On click listener for any button with a class of animal-button
-function displayAnimalInfo(){
-    $("#animal-button").on("click", function(){
-     // Grab our GIPHY API by making an Ajax request
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal +"&api_key=86gmopU2iKrSWy2FWvm1h5sM3An49fxH&limit=5"
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(response) {
-            console.log(response);
-        });
-    })
-}
 
 $(document).on("click", ".animal-button", displayAnimalInfo);
 
 
-    // Displays the initial array items as buttons on the page
-    renderButtons();
+// Displays the initial array items as buttons on the page
+renderButtons();
 
 });
