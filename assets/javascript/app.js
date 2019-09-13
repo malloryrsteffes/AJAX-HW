@@ -29,7 +29,7 @@ $(document).ready(function() {
     function displayAnimalInfo(){
         
         alert("You clicked!");
-        // Set our animal variable equal to the text of the button. This currently isn't working.
+        // Set our animal variable equal to the text of the button. 
         var animal = $(this).attr("data-name");
         console.log(animal);
 
@@ -45,7 +45,8 @@ $(document).ready(function() {
             var results = response.data;
 
             for (i = 0; i < results.length; i++){
-                    // Creating a div to hold the movie
+
+                // Creating a div to hold the movie
                 var gifDiv = $("<div class='gif'>");
 
                 // Storing the rating data
@@ -58,17 +59,43 @@ $(document).ready(function() {
                 gifDiv.append(ratingParagraph);
 
                 // Retrieving the URL for the image
-                var imgURL = results[i].images.fixed_height_still.url;
+                var gifURL = results[i].images.fixed_height_still.url;
+                var stillGIF = results[i].images.fixed_height_still.url;
+                var movingGIF = results[i].images.fixed_height.url;
 
-                // Creating an element to hold the image
-                var gif = $("<img>").attr("src", imgURL);
+                // Creating an element to hold the image, giving it data attributes
+                var gif = $("<img>").attr("src", gifURL);
+                gif.attr("data-still", stillGIF);
+                gif.attr("data-animate", movingGIF);
+                gif.attr("data-state", "still");
+                gif.addClass("gif")
+                
 
                 // Appending the image
                 gifDiv.append(gif);
 
                 // Putting the entire movie above the previous movies
                 $("#gif-view").prepend(gifDiv);
+
+                 // GIF on click still and animate function. For some reason, this works sometimes,
+                 //and other times won't take affect. It's also console logging something undefined?
+                 $(".gif").on("click", function() {
+                    var state = $(this).attr("data-state");
+
+                    if (state === "still"){
+                        $(this).attr("src", $(this).attr("data-animate"));
+                        $(this).attr("data-state", "animate");
+                        console.log(state);
+                      }
+                
+                      else {
+                        $(this).attr("src", $(this).attr("data-still"));
+                        $(this).attr("data-state", "still");
+                      }
+                });
             }
+
+            
         });   
     }
 
@@ -89,6 +116,9 @@ $(document).ready(function() {
         renderButtons();
 
     });
+
+   
+
 
 
 $(document).on("click", ".animal-button", displayAnimalInfo);
