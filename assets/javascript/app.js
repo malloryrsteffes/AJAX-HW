@@ -77,7 +77,10 @@ $(document).ready(function() {
                 // Putting the entire movie above the previous movies
                 $("#gif-view").prepend(gifDiv);
 
-                 // GIF on click still and animate function. For some reason, this works sometimes,
+            
+            }
+
+              // GIF on click still and animate function. For some reason, this works sometimes,
                  //and other times won't take affect. It's also console logging something undefined?
                  $(".gif").on("click", function() {
                     var state = $(this).attr("data-state");
@@ -91,9 +94,10 @@ $(document).ready(function() {
                       else {
                         $(this).attr("src", $(this).attr("data-still"));
                         $(this).attr("data-state", "still");
+                        console.log(this);
+
                       }
                 });
-            }
 
             
         });   
