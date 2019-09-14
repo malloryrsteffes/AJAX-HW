@@ -33,7 +33,7 @@ $(document).ready(function() {
         console.log(animal);
 
         // Grab our GIPHY API by making an Ajax request
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal +"&api_key=86gmopU2iKrSWy2FWvm1h5sM3An49fxH&limit=10"
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal +"&api_key=86gmopU2iKrSWy2FWvm1h5sM3An49fxH&limit=9"
 
         $.ajax({
             url: queryURL,

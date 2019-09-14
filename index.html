@@ -14,15 +14,17 @@
 </head>
 
 <body>
-    <div class="container">
-        
+    <div class="container" id="main-container">
+
         <!-- Jumbotron -->
         <div class="jumbotron text-center">
-            <h1>Giphy's Animal Gif Safari</h1>
-            <h3>Click on any of the buttons below - or feel free to add your own!</h3>
-            <h5>You can pause or play these adorable GIFs as you wish!</h5>
+            <div class="jumboText">
+                <h1>Giphy's Animal Gif Safari</h1>
+                <h5>Click on any of the buttons below for a fun surprise - or feel free to add your own!</h5>
+                <h5>You can pause or play these adorable GIFs as you wish.</h5>
+            </div>
         </div>
-    
+
         <!-- Submission Section-->
         <form class="form-inline" id="gif-form">
             <div class="form-group">
@@ -33,7 +35,7 @@
             <input id="add-animal" type="submit" value="Animal Search">
         </form>
 
-         <!-- Buttons will be appended here dynamically -->
+        <!-- Buttons will be appended here dynamically -->
         <div class="row">
             <div class="container">
                 <div id="buttons-view"></div>
@@ -42,10 +44,11 @@
 
         <!-- We'll be dumping our JSON contents in here -->
         <div class="row" id="gif-view">
-            
+
         </div>
     </div>
-   
+
+
 
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,12 +1,36 @@
 body{
-    background: lightgreen;
-}.jumbotron {
-    background: green;
+    background: darkgreen;
+    width: 100%;
+    position: relative;
+
+}
+
+.jumbotron {
+    background-image: url(../images/Landscape\ 02.jpg);
+    background-size: cover;
+}
+
+.jumboText {
+    background: rgba(255,255,255, .7);
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#main-container {
+    width: 80%;
+  
 }
 
 #gif-form {
     float: right;
+    background: white;
+    padding-right: 10px;
     
+}
+
+#buttons-view{
+    padding: 10px;
 }
 
 .form-group {
@@ -24,5 +48,6 @@ body{
 #gif-view {
 	clear: both;
 	display: inline;
-	flex-wrap: wrap;
+    flex-wrap: wrap;
 }
+
