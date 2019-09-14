@@ -19,6 +19,11 @@ body{
 
 #main-container {
     width: 80%;
+    background: rgba(255,255,255, .7);
+    display: block;
+    overflow: auto;
+    height: 100%;
+    padding-bottom: 20px;
   
 }
 

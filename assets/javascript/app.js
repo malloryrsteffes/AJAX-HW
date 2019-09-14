@@ -72,6 +72,7 @@ $(document).ready(function() {
 
                 // Appending the image
                 gifDiv.append(gif);
+                //This keeps the image divs from taking up an entire row
                 $(gifDiv).css({"float":"left"});
 
 
