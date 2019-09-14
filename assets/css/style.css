@@ -1,0 +1,28 @@
+body{
+    background: lightgreen;
+}.jumbotron {
+    background: green;
+}
+
+#gif-form {
+    float: right;
+    
+}
+
+.form-group {
+    padding: 10px;
+}
+
+#animal-input {
+    margin-left: 10px;
+}
+
+.animal-button {
+    margin: 10px;
+}
+
+#gif-view {
+	clear: both;
+	display: inline;
+	flex-wrap: wrap;
+}

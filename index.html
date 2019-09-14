@@ -1,38 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GIPHY's Animal Gif Safari</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- My Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <h1>Giphy's Animal Gif Safari</h1>
-
-    <!-- Buttons will be appended here dynamically -->
-    <div id="buttons-view"></div>
-
-    <form id="gif-form">
-        <label for="animal-input">Search for an animal</label>
-        <input type="text" id="animal-input"><br>
-  
-        <!-- This button will trigger our AJAX call -->
-        <input id="add-animal" type="submit" value="Animal Search">
-      </form>
-
-       <!-- We'll be dumping our JSON contents in here -->
-    <div id="gif-view"></div>
-  
-
+    <div class="container">
+        
+        <!-- Jumbotron -->
+        <div class="jumbotron text-center">
+            <h1>Giphy's Animal Gif Safari</h1>
+            <h3>Click on any of the buttons below - or feel free to add your own!</h3>
+            <h5>You can pause or play these adorable GIFs as you wish!</h5>
+        </div>
     
+        <!-- Submission Section-->
+        <form class="form-inline" id="gif-form">
+            <div class="form-group">
+                <label for="animal-input">Search for an animal!</label>
+                <input type="text" id="animal-input"><br>
+            </div>
+            <!-- This button will trigger our AJAX call -->
+            <input id="add-animal" type="submit" value="Animal Search">
+        </form>
+
+         <!-- Buttons will be appended here dynamically -->
+        <div class="row">
+            <div class="container">
+                <div id="buttons-view"></div>
+            </div>
+        </div>
+
+        <!-- We'll be dumping our JSON contents in here -->
+        <div class="row" id="gif-view">
+            
+        </div>
+    </div>
+   
+
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- My JS -->
     <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>

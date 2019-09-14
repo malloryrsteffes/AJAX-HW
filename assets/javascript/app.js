@@ -1,7 +1,7 @@
 // Key: 86gmopU2iKrSWy2FWvm1h5sM3An49fxH
 $(document).ready(function() {
     // Create an array to hold the animals
-    var animals = ["cat", "dog", "horse", "pig", "cow", "rabbit", "snake", "frog", "lizard", "bird", "mouse", "rat", "lion", "tiger", "bear"]
+    var animals = ["cat", "dog", "horse", "pig", "cow", "rabbit", "snake", "frog"]
     
     // Function to render new buttons to the page. This function rerenders the entire array each time.
     function renderButtons(){
@@ -28,13 +28,12 @@ $(document).ready(function() {
     //On click listener for any button with a class of animal-button
     function displayAnimalInfo(){
         
-        alert("You clicked!");
         // Set our animal variable equal to the text of the button. 
         var animal = $(this).attr("data-name");
         console.log(animal);
 
         // Grab our GIPHY API by making an Ajax request
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal +"&api_key=86gmopU2iKrSWy2FWvm1h5sM3An49fxH&limit=5"
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal +"&api_key=86gmopU2iKrSWy2FWvm1h5sM3An49fxH&limit=10"
 
         $.ajax({
             url: queryURL,
@@ -47,7 +46,7 @@ $(document).ready(function() {
             for (i = 0; i < results.length; i++){
 
                 // Creating a div to hold the movie
-                var gifDiv = $("<div class='gif'>");
+                var gifDiv = $("<div class='col-md-4'>");
 
                 // Storing the rating data
                 var rating = results[i].rating;
@@ -73,15 +72,15 @@ $(document).ready(function() {
 
                 // Appending the image
                 gifDiv.append(gif);
+                $(gifDiv).css({"float":"left"});
+
 
                 // Putting the entire movie above the previous movies
                 $("#gif-view").prepend(gifDiv);
 
-            
             }
 
-              // GIF on click still and animate function. For some reason, this works sometimes,
-                 //and other times won't take affect. It's also console logging something undefined?
+              // GIF on click still and animate function. 
                  $(".gif").on("click", function() {
                     var state = $(this).attr("data-state");
 
