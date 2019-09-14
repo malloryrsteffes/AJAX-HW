@@ -9,16 +9,16 @@ $(document).ready(function() {
         // We empty out the buttons, so we don't have repeats each time
         $("#buttons-view").empty();
 
-        // Loops through the array of movies
+        // Loops through the array of animals
         for (var i = 0; i < animals.length; i++) {
 
             // Then dynamically generates buttons for each movie in the array.
             var b = $("<button>");
             // Adding a class
             b.addClass("animal-button");
-            // Adding a data-attribute with a value of the movie at index i
+            // Adding a data-attribute with a value of the animal at index i
             b.attr("data-name", animals[i]);
-            // Providing the button's text with a value of the movie at index i
+            // Providing the button's text with a value of the animal at index i
             b.text(animals[i]);
             // Adding the button to the HTML
             $("#buttons-view").append(b);
@@ -114,7 +114,7 @@ $(document).ready(function() {
 
         // Adding movie from the textbox to our array
         animals.push(animal);
-
+        $("#animal-input").val("");
         // Calling renderButtons which handles the processing of our movie array
         renderButtons();
 
