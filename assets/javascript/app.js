@@ -53,9 +53,10 @@ $(document).ready(function() {
 
                 // Creating an element to have the rating displayed
                 var ratingParagraph = $("<p>").text("Rating: " + rating);
-
-                // Displaying the rating
+                var favoriteButton = $("<button>").text("♥")
+                // Displaying the rating and fav button
                 gifDiv.append(ratingParagraph);
+                gifDiv.prepend(favoriteButton);
 
                 // Retrieving the URL for the image
                 var gifURL = results[i].images.fixed_height_still.url;
@@ -74,6 +75,8 @@ $(document).ready(function() {
                 gifDiv.append(gif);
                 //This keeps the image divs from taking up an entire row
                 $(gifDiv).css({"float":"left"});
+                $(gifDiv).css({"margin-top":"20px"});
+                $(favoriteButton).addClass("favoriteButton");
 
 
                 // Putting the entire movie above the previous movies
@@ -98,6 +101,13 @@ $(document).ready(function() {
 
                       }
                 });
+
+                // on click function to move the gif to our favorites section. Figured it out using .parent()!
+                $(".favoriteButton").on("click", function(){
+
+                    var newFav = $(this).parent();//This is where I'd like to grab the entire div the specific favorite button is in
+                    $("#favorites-view").append($(newFav)); //I'm not sure how to target the gifDiv specific to the favorite button
+                })
 
             
         });   

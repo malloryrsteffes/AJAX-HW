@@ -43,10 +43,23 @@
             </div>
         </div>
 
-        <!-- We'll be dumping our JSON contents in here -->
-        <div class="row" id="gif-view">
+        <!-- Hopefully favorite GIFs will be dumped here-->
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <!--This is working, but not perfectly. The button is not functional - I believe it has something 
+                    to do with Bootstrap collapse limitations on dynamically created HTML elements -->
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#favorites-view"
+                    aria-expanded="true" aria-controls="favorites-view">
+                    Fav Gifs
+                </button>
+            </div>
+        </div>
+        <div class="row collapse show" id="favorites-view">
 
         </div>
+
+        <!-- We'll be dumping our JSON contents in here -->
+        <div class="row" id="gif-view"></div>
     </div>
 
 
