@@ -54,6 +54,8 @@ $(document).ready(function() {
                 // Creating an element to have the rating displayed
                 var ratingParagraph = $("<span>").text("Rating: " + rating);
                 var favoriteButton = $("<button>").text("♥")
+                $(favoriteButton).addClass("favoriteButton");
+
                 // Displaying the rating and fav button
                 gifDiv.prepend(favoriteButton);
                 gifDiv.prepend(ratingParagraph);
@@ -77,7 +79,6 @@ $(document).ready(function() {
                 //This keeps the image divs from taking up an entire row
                 $(gifDiv).css({"float":"left"});
                 $(gifDiv).css({"margin-top":"20px"});
-                $(favoriteButton).addClass("favoriteButton");
 
 
                 // Putting the entire movie above the previous movies
@@ -104,7 +105,7 @@ $(document).ready(function() {
                 });
 
                 // on click function to move the gif to our favorites section. Figured it out using .parent()!
-                $(".favoriteButton").on("click", function(){
+                $(document).on("click", ".favoriteButton", function(){
 
                     var newFav = $(this).parent();
                     $("#favorites-view").append($(newFav)); 
@@ -113,11 +114,16 @@ $(document).ready(function() {
                 })
 
                 //Allows the user to then remove the gif from our favorites. This is not working - it's not even registering the click.
-                $(".unFavoriteButton").on("click", function(){
+                $(document).on("click", ".unFavoriteButton" , function() {
                     var unFav = $(this).parent();
-                    console.log(unFav);
-                    $("#favorites-view").remove(unFav);
-                })
+                        console.log(unFav);
+                         unFav.remove();                
+                        });
+                // $(".unFavoriteButton").on("click", function(){
+                //     var unFav = $(this).parent();
+                //     console.log(unFav);
+                //     $("#favorites-view").remove(unFav);
+                // })
             
         });   
     }
