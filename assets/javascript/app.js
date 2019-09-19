@@ -1,7 +1,7 @@
 // Key: 86gmopU2iKrSWy2FWvm1h5sM3An49fxH
 $(document).ready(function() {
     // Create an array to hold the animals
-    var animals = ["cat", "dog", "horse", "pig", "cow", "rabbit", "snake", "frog"]
+    var animals = ["cat", "dog", "horse", "pig", "cow", "rabbit", "snake"]
     
     // Function to render new buttons to the page. This function rerenders the entire array each time.
     function renderButtons(){
